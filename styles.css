@@ -24,3 +24,7 @@ header {
     box-sizing: border-box;
     padding: 25px 12px;
 }
+
+#data-collecter {
+    margin-top: 50px;
+}
