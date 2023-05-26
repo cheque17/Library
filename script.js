@@ -50,8 +50,6 @@ function checkBookCollection (bookCollection) {
 
 const divDataCollecter = document.createElement('div')
 divDataCollecter.setAttribute('id', 'data-collecter');
-divDataCollecter.style.backgroundColor = 'grey';
-
 
 
 const nameDisplay = document.createElement('div')
@@ -119,15 +117,18 @@ divDataCollecter.appendChild(submitButton);
 
 //Pop up data collecter
 
-triggerButton.addEventListener('click', (event)=> {
+triggerButton.addEventListener('click', ()=> {
   body.appendChild(divDataCollecter);
 });
 
 
 
 submitButton.addEventListener('click', (event)=> {
-    console.log(event);
-    checkBookCollection(myBookCollection);
-		body.removeChild(divDataCollecter);
+	let titleEntered = titleInput.value;
+	let authorEntered = authorInput.value;
+	let pagesEntered = pagesInput.value
+	let bookCreated = new BookRegistration (titleEntered, authorEntered, pagesEntered)
+  checkBookCollection(myBookCollection);
+	body.removeChild(divDataCollecter);
 });
 
