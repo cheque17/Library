@@ -36,17 +36,23 @@ header {
     left: 50%;
     margin-top: -52px;
     margin-left: -200px;
+    font-size: 22px;
 }
 
 #data-collecter input:nth-child(-n + 3) {
     border-radius: 7px;
     border-style: none;
+    font-size: 22px;
 }
 
 #data-collecter div {
     margin-bottom: 15px;
+    
 }
 
 #data-collecter button {
-    margin: 5px auto 0;
+    border-radius: 20px;
+    border: none;
+    font-size: 22px;
+    padding: 5px 18px;
 }

@@ -46,24 +46,26 @@ function checkBookCollection (bookCollection) {
 	}
 }
 
-//Pop up data collecter
+//Pop up data collecter creation
 
 const divDataCollecter = document.createElement('div')
 divDataCollecter.setAttribute('id', 'data-collecter');
 
 
-const nameDisplay = document.createElement('div')
-divDataCollecter.appendChild(nameDisplay);
+const titleDisplay = document.createElement('div');
+titleDisplay.style.display= 'flexbox';
+titleDisplay.style.justifyContent='space-evenly';
+divDataCollecter.appendChild(titleDisplay);
 
 const titleLabel = document.createElement('label');
 titleLabel.setAttribute('for', 'title');
 titleLabel.textContent = 'Title: ';
-nameDisplay.appendChild(titleLabel);
+titleDisplay.appendChild(titleLabel);
 
 const titleInput = document.createElement('input');
 titleInput.setAttribute('id', 'name');
 titleInput.setAttribute('placeholder', 'Book Title');
-nameDisplay.appendChild(titleInput);
+titleDisplay.appendChild(titleInput);
 
 
 const authorDisplay = document.createElement('div');
@@ -116,13 +118,12 @@ divDataCollecter.appendChild(submitButton);
 
 
 //Pop up data collecter
-
 triggerButton.addEventListener('click', ()=> {
   body.appendChild(divDataCollecter);
 });
 
 
-
+//Create new book
 submitButton.addEventListener('click', (event)=> {
 	let titleEntered = titleInput.value;
 	let authorEntered = authorInput.value;
