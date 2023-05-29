@@ -51,6 +51,16 @@ function checkBookCollection (bookCollection) {
 const divDataCollecter = document.createElement('div')
 divDataCollecter.setAttribute('id', 'data-collecter');
 
+const exitDisplay = document.createElement('div');
+divDataCollecter.appendChild(exitDisplay);
+
+const exitButton = document.createElement('div');
+exitButton.style.borderRadius = '50%';
+exitButton.style.padding = '1px 5px';
+exitButton.style.fontSize = '14px';
+exitButton.textContent = 'x';
+exitDisplay.appendChild(exitButton);
+
 
 const titleDisplay = document.createElement('div');
 titleDisplay.style.display= 'flexbox';
@@ -133,3 +143,8 @@ submitButton.addEventListener('click', (event)=> {
 	body.removeChild(divDataCollecter);
 });
 
+//Exit button
+
+exitButton.addEventListener('click', ()=> {
+  body.removeChild(divDataCollecter);
+})

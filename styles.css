@@ -27,7 +27,7 @@ header {
 }
 
 #data-collecter {
-    border: solid 3px black;
+    border: solid 5px black;
     border-radius: 18px;
     margin-top: 50px;
     padding: 35px 15px;
@@ -43,14 +43,40 @@ header {
     border-radius: 7px;
     border-style: none;
     font-size: 22px;
+    margin-left: 25px;
 }
+
+#data-collecter div:nth-child(1) {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#data-collecter div div {
+    border: solid black 1px;
+    border-radius: 50%;
+    padding: 1px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#data-collecter div:nth-child(n + 2) {
+	display: flex;
+	justify-content: space-between;
+}
+
+
+#data-collecter div:nth-child(n+5) {
+	display: flex;
+	justify-content: center;
+}
+
 
 #data-collecter div {
-    margin-bottom: 15px;
-    
+	margin-bottom: 15px;
 }
 
-#data-collecter button {
+#data-collecter button:last-child {
     border-radius: 20px;
     border: none;
     font-size: 22px;
