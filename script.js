@@ -48,23 +48,21 @@ function checkBookCollection (bookCollection) {
 
 //Pop up data collecter creation
 
-const divDataCollecter = document.createElement('div')
+const divDataCollecter = document.createElement('div');
+divDataCollecter.style.backgroundColor = 'rgb(219, 134, 73)';
 divDataCollecter.setAttribute('id', 'data-collecter');
 
 const exitDisplay = document.createElement('div');
 divDataCollecter.appendChild(exitDisplay);
 
-const exitButton = document.createElement('div');
-exitButton.style.borderRadius = '50%';
-exitButton.style.padding = '1px 5px';
-exitButton.style.fontSize = '14px';
+const exitButton = document.createElement('button');
+exitButton.setAttribute('type', 'button');
+exitButton.setAttribute('style', 'border-radius: 50%; padding: 2px 7px; font-size: 14px;  position: absolute; top: 5px; right: 5px;');
 exitButton.textContent = 'x';
 exitDisplay.appendChild(exitButton);
 
 
 const titleDisplay = document.createElement('div');
-titleDisplay.style.display= 'flexbox';
-titleDisplay.style.justifyContent='space-evenly';
 divDataCollecter.appendChild(titleDisplay);
 
 const titleLabel = document.createElement('label');
@@ -121,10 +119,13 @@ readLabel.setAttribute('for', 'read');
 readLabel.textContent = 'Have you read this book?';
 readDisplay.appendChild(readLabel);
 
+const submitDisplay = document.createElement('div');
+divDataCollecter.appendChild(submitDisplay);
+
 const submitButton = document.createElement('button');
-submitButton.setAttribute('type', 'button');
+submitButton.setAttribute('type', 'submit');
 submitButton.textContent = 'Save';
-divDataCollecter.appendChild(submitButton);
+submitDisplay.appendChild(submitButton);
 
 
 //Pop up data collecter
@@ -138,7 +139,8 @@ submitButton.addEventListener('click', (event)=> {
 	let titleEntered = titleInput.value;
 	let authorEntered = authorInput.value;
 	let pagesEntered = pagesInput.value
-	let bookCreated = new BookRegistration (titleEntered, authorEntered, pagesEntered)
+	let bookCreated = new BookRegistration (titleEntered, authorEntered, pagesEntered);
+	addBookToLibrary(bookCreated);
   checkBookCollection(myBookCollection);
 	body.removeChild(divDataCollecter);
 });

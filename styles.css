@@ -51,14 +51,6 @@ header {
     justify-content: flex-end;
 }
 
-#data-collecter div div {
-    border: solid black 1px;
-    border-radius: 50%;
-    padding: 1px;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
 
 #data-collecter div:nth-child(n + 2) {
 	display: flex;
