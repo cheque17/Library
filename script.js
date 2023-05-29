@@ -142,11 +142,17 @@ submitButton.addEventListener('click', (event)=> {
 	let bookCreated = new BookRegistration (titleEntered, authorEntered, pagesEntered);
 	addBookToLibrary(bookCreated);
   checkBookCollection(myBookCollection);
+	titleInput.value = '';
+	authorInput.value = '';
+	pagesInput.value = '';
 	body.removeChild(divDataCollecter);
 });
 
 //Exit button
 
 exitButton.addEventListener('click', ()=> {
+	titleInput.value = '';
+	authorInput.value = '';
+	pagesInput.value = '';
   body.removeChild(divDataCollecter);
 })
