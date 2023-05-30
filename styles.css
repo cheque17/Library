@@ -30,6 +30,19 @@ header {
 	margin: 0;
 }
 
+#collection-container .book-space {
+	background-color: grey; 
+	height:100%; 
+	width: 100%; 
+	border-radius: 15px; 
+	box-sizing: border-box;
+	padding: 20px 10px; 
+	display: flex; 
+	flex-direction: column; 
+	justify-content: space-around; 
+	align-items: center;
+}
+
 #collection-container button:first-child {
 	background-color: crimson;
 }
