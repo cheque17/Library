@@ -32,17 +32,29 @@ function addBookInfo (i, propertyName, addedBook, infoDisplayed ) {
 function checkBookCollection (bookCollection) {
 	for (let i = (bookDivContainer.childElementCount); i<(bookCollection.length); i++) {
 		let registeredBook = document.createElement('div');
-		registeredBook.style.backgroundColor = 'grey';
-		registeredBook.style.height = '100%';
-		registeredBook.style.width = "100%";
-		registeredBook.style.borderRadius= '15px';
-		registeredBook.style.boxSizing = 'border-box';
-		registeredBook.style.padding = '20px 10px'
+		registeredBook.setAttribute('style', 'background-color: grey; height:100%; width: 100%; border-radius: 15px; box-sizing: border-box; padding: 20px 10px; display: flex; flex-direction: column; justify-content: space-around; align-items: center;')
 		bookDivContainer.appendChild(registeredBook)
 		addBookInfo(i, 'title', registeredBook, 'Title');
 		addBookInfo(i, 'author', registeredBook, 'Author Name');
 		addBookInfo(i, 'numberOfPages', registeredBook, 'Number of Pages');
-		addBookInfo(i, 'haveRead', registeredBook, 'Read Status');
+		let buttonsSpace = document.createElement('div');
+		buttonsSpace.setAttribute('style', 'display: flex; justify-content: space-around; width: 215px;');
+		registeredBook.appendChild(buttonsSpace);
+		let changeReadStatus = document.createElement('button');
+		changeReadStatus.setAttribute('style', 'border-radius: 5px; border: none;')
+		changeReadStatus.classList.add('status');
+		if (myBookCollection[i].haveRead) {
+			console.log(registeredBook.haveRead);
+			changeReadStatus.textContent = 'READ';
+			changeReadStatus.classList.toggle('read');
+		} else {
+			changeReadStatus.textContent = "NOT READ";
+		}
+		buttonsSpace.appendChild(changeReadStatus);
+		let bookEraser = document.createElement("button");
+		bookEraser.setAttribute('style', 'border-radius: 5px; border: none;')
+		bookEraser.textContent = 'ERASE';
+		buttonsSpace.appendChild(bookEraser);
 	}
 }
 

@@ -26,6 +26,18 @@ header {
     padding: 25px 12px;
 }
 
+#collection-container p {
+	margin: 0;
+}
+
+#collection-container button:first-child {
+	background-color: crimson;
+}
+
+#collection-container div .read {
+	background-color: aquamarine;
+}
+
 #data-collecter {
     border: solid 5px black;
     border-radius: 18px;
