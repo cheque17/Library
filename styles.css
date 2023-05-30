@@ -43,7 +43,7 @@ header {
 	align-items: center;
 }
 
-#collection-container button:first-child {
+#collection-container div .not-read {
 	background-color: crimson;
 }
 
