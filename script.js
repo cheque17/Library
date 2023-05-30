@@ -10,7 +10,7 @@ function BookRegistration (title, author, numberOfPages, haveRead){
 	this.title = title,
 	this.author = author,
 	this.numberOfPages = numberOfPages,
-	this.haveRead = haveRead
+	this.haveRead = Boolean(haveRead);
 }
 
 //Store books in the array function
@@ -139,13 +139,24 @@ submitButton.addEventListener('click', (event)=> {
 	let titleEntered = titleInput.value;
 	let authorEntered = authorInput.value;
 	let pagesEntered = pagesInput.value
-	let bookCreated = new BookRegistration (titleEntered, authorEntered, pagesEntered);
-	addBookToLibrary(bookCreated);
-  checkBookCollection(myBookCollection);
-	titleInput.value = '';
-	authorInput.value = '';
-	pagesInput.value = '';
-	body.removeChild(divDataCollecter);
+	let readStatus = readCheckbox.checked;
+	if (titleEntered && authorEntered && pagesEntered){
+		let bookCreated = new BookRegistration (titleEntered, authorEntered, pagesEntered, readStatus);
+		addBookToLibrary(bookCreated);
+		checkBookCollection(myBookCollection);
+		titleInput.value = '';
+		authorInput.value = '';
+		pagesInput.value = '';
+		readCheckbox.checked = false;
+		body.removeChild(divDataCollecter);
+	} else {
+		titleInput.value = '';
+		authorInput.value = '';
+		pagesInput.value = '';
+		readCheckbox.checked = false;
+		alert('All the fields should be filled for the book to be registered.');
+	}
+	
 });
 
 //Exit button
@@ -154,5 +165,6 @@ exitButton.addEventListener('click', ()=> {
 	titleInput.value = '';
 	authorInput.value = '';
 	pagesInput.value = '';
+	readCheckbox.checked = false;
   body.removeChild(divDataCollecter);
 })
