@@ -49,6 +49,7 @@ function checkBookCollection (bookCollection) {
 			changeReadStatus.classList.toggle('read');
 		} else {
 			changeReadStatus.textContent = "NOT READ";
+			changeReadStatus.classList.toggle('not-read');
 		}
 		buttonsSpace.appendChild(changeReadStatus);
 		let bookEraser = document.createElement("button");
@@ -56,8 +57,42 @@ function checkBookCollection (bookCollection) {
 		bookEraser.classList.add('eliminate');
 		bookEraser.textContent = 'ERASE';
 		buttonsSpace.appendChild(bookEraser);
+		
+		changeReadStatus.addEventListener('click', ()=> {
+			changeReadStatus.classList.toggle('read');
+			changeReadStatus.classList.toggle('not-read');
+			if (changeReadStatus.textContent == "NOT READ") {
+				console.log(myBookCollection[i].haveRead);
+				changeReadStatus.textContent = 'READ';
+				myBookCollection[i].haveRead = true;
+			} else if (changeReadStatus.textContent == 'READ') {
+				console.log(myBookCollection[i].haveRead);
+				changeReadStatus.textContent = 'NOT READ';
+				myBookCollection[i].haveRead = false;
+			}
+		})
 	}
+
+	
+	/*
+	const statusButtons = document.querySelectorAll('.status');
+		statusButtons.forEach((button)=> {
+			button.addEventListener('click', (event)=> {
+				button.classList.toggle('read');
+				button.classList.toggle('not-read');
+				if (button.textContent = "NOT READ") {
+					console.log(button.textContent)
+					button.textContent = 'READ';
+				} else if (button.textContent = 'READ') {
+					console.log(button.textContent);
+					button.textContent = 'NOT READ';
+				}
+			})
+		})*/
 }
+
+
+
 
 //Pop up data collecter creation
 
@@ -183,6 +218,10 @@ exitButton.addEventListener('click', ()=> {
 })
 
 //Button to change the read status
-
-const statusButtons = document.querySelectorAll('.status');
-//seguir con event listener
+/*
+statusButtons.forEach((button)=> {
+	button.addEventListener('click', (event)=> {
+		button.classList.toggle('read');
+		button.classList.toggle('not-read');
+	})
+})*/
