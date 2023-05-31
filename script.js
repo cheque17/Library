@@ -71,6 +71,13 @@ function checkBookCollection (bookCollection) {
 				myBookCollection[i].haveRead = false;
 			}
 		})
+		
+		bookEraser.addEventListener('click', () => {
+			myBookCollection.splice(i, 1);
+			bookDivContainer.removeChild(registeredBook);
+		})
+
+		//Use splice, pop and shift
 	}
 
 	
