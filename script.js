@@ -79,26 +79,7 @@ function checkBookCollection (bookCollection) {
 
 		//Use splice, pop and shift
 	}
-
-	
-	/*
-	const statusButtons = document.querySelectorAll('.status');
-		statusButtons.forEach((button)=> {
-			button.addEventListener('click', (event)=> {
-				button.classList.toggle('read');
-				button.classList.toggle('not-read');
-				if (button.textContent = "NOT READ") {
-					console.log(button.textContent)
-					button.textContent = 'READ';
-				} else if (button.textContent = 'READ') {
-					console.log(button.textContent);
-					button.textContent = 'NOT READ';
-				}
-			})
-		})*/
 }
-
-
 
 
 //Pop up data collecter creation
