@@ -1,8 +1,19 @@
 body {
     margin: 0;
     font-family: "Raleway", sans-serif;
-    background-color: rgb(173, 255, 228);
+    background-color: rgb(186, 255, 232);
     position: relative;
+}
+
+#trigger {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+footer {
+    height: 70px;
+    background-color: bisque;
 }
 
 header {
@@ -11,6 +22,10 @@ header {
     justify-content: center;
     align-items: center;
     font-size: 25px;
+}
+
+h2 {
+    margin-left: 45px;
 }
 
 .collection-grid {
@@ -24,6 +39,10 @@ header {
     gap: 12px;
     box-sizing: border-box;
     padding: 25px 12px;
+}
+
+#collection-container {
+    margin-bottom: 80px;
 }
 
 #collection-container p {
