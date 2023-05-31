@@ -1,14 +1,17 @@
 body {
     margin: 0;
     font-family: "Raleway", sans-serif;
-    background-color: rgb(186, 255, 232);
+    background-color: rgb(160, 255, 106);
     position: relative;
 }
 
 #trigger {
     position: fixed;
     right: 50px;
-    bottom: 50px;
+    bottom: 60px;
+    border-radius: 15px;
+    border: solid 1px black;
+    padding: 3px 10px;
 }
 
 footer {
@@ -44,6 +47,8 @@ h2 {
 
 #collection-container {
     margin-bottom: 100px;
+    border-radius: 8px;
+    border: solid 1px rgb(253, 90, 40);
 }
 
 #collection-container p {
