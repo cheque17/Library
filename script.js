@@ -4,14 +4,25 @@ const triggerButton = document.querySelector("#trigger");
 const body = document.querySelector('body')
 const bookDivContainer = document.querySelector('#collection-container');
 
+
+class BookRegistration {
+	constructor(title, author, numberOfPages, haveRead) {
+		this.title = title,
+		this.author = author,
+		this.numberOfPages = numberOfPages,
+		this.haveRead = Boolean(haveRead);
+	}
+}
+
 //Object constructor
 
-function BookRegistration (title, author, numberOfPages, haveRead){
+
+/*function BookRegistration (title, author, numberOfPages, haveRead){
 	this.title = title,
 	this.author = author,
 	this.numberOfPages = numberOfPages,
 	this.haveRead = Boolean(haveRead);
-}
+}*/
 
 //Store books in the array function
 
