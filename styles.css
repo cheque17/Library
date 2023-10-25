@@ -1,8 +1,13 @@
 body {
     margin: 0;
     font-family: "Raleway", sans-serif;
-    background-color: rgb(89, 166, 255);
+    background-color: rgb(118, 255, 159);
     position: relative;
+}
+
+main{
+    height: 83vh;
+    width: 100%;
 }
 
 #trigger {
@@ -15,7 +20,7 @@ body {
 }
 
 footer {
-    height: 45px;
+    height: 5vh;
     background-color: rgb(0, 105, 119);
     color: cornsilk;
     display: flex;
@@ -24,7 +29,7 @@ footer {
 }
 
 header {
-    height: 120px;
+    height: 12vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,6 +37,7 @@ header {
 }
 
 h2 {
+    margin-top: 0;
     margin-left: 45px;
     margin-bottom: 30px;
 }
@@ -50,7 +56,6 @@ h2 {
 }
 
 #collection-container {
-    margin-bottom: 100px;
     border-radius: 8px;
     border: solid 1px black;
 }
