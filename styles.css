@@ -6,7 +6,7 @@ body {
 }
 
 main{
-    height: 83vh;
+    min-height: 83vh;
     width: 100%;
 }
 
@@ -53,6 +53,7 @@ h2 {
     gap: 12px;
     box-sizing: border-box;
     padding: 25px 12px;
+    margin-bottom: 50px;
 }
 
 #collection-container {
