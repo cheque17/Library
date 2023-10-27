@@ -45,7 +45,7 @@ h2 {
 .collection-grid {
     margin: 0 auto;
     background-color: rgb(124, 250, 239);
-    width: 1000px;
+    width: 60vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 300px;

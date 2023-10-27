@@ -55,7 +55,6 @@ function checkBookCollection (bookCollection) {
 		changeReadStatus.setAttribute('style', 'border-radius: 5px; border: none;')
 		changeReadStatus.classList.add('status');
 		if (myBookCollection[i].haveRead) {
-			console.log(registeredBook.haveRead);
 			changeReadStatus.textContent = 'READ';
 			changeReadStatus.classList.toggle('read');
 		} else {
@@ -73,11 +72,9 @@ function checkBookCollection (bookCollection) {
 			changeReadStatus.classList.toggle('read');
 			changeReadStatus.classList.toggle('not-read');
 			if (changeReadStatus.textContent == "NOT READ") {
-				console.log(myBookCollection[i].haveRead);
 				changeReadStatus.textContent = 'READ';
 				myBookCollection[i].haveRead = true;
 			} else if (changeReadStatus.textContent == 'READ') {
-				console.log(myBookCollection[i].haveRead);
 				changeReadStatus.textContent = 'NOT READ';
 				myBookCollection[i].haveRead = false;
 			}
@@ -94,10 +91,12 @@ function checkBookCollection (bookCollection) {
 
 
 //Pop up data collecter creation
+function createDataCollecter (){};
 
-const divDataCollecter = document.createElement('div');
+const divDataCollecter = document.createElement('form');
 divDataCollecter.style.backgroundColor = 'rgb(219, 134, 73)';
 divDataCollecter.setAttribute('id', 'data-collecter');
+divDataCollecter.setAttribute('action', '#')
 
 const exitDisplay = document.createElement('div');
 divDataCollecter.appendChild(exitDisplay);
@@ -118,8 +117,9 @@ titleLabel.textContent = 'Title: ';
 titleDisplay.appendChild(titleLabel);
 
 const titleInput = document.createElement('input');
-titleInput.setAttribute('id', 'name');
+titleInput.setAttribute('id', 'title');
 titleInput.setAttribute('placeholder', 'Book Title');
+titleInput.setAttribute('required', '');
 titleDisplay.appendChild(titleInput);
 
 
@@ -133,7 +133,9 @@ authorDisplay.appendChild(authorLabel);
 
 const authorInput = document.createElement('input');
 authorInput.setAttribute('id', 'author');
-authorInput.setAttribute('placeholder', 'Author Name')
+authorInput.setAttribute('placeholder', 'Author Name');
+authorInput.setAttribute('pattern', '[a-zA-Z]');
+authorInput.setAttribute('required', '');
 authorDisplay.appendChild(authorInput);
 
 
@@ -149,6 +151,7 @@ const pagesInput = document.createElement('input');
 pagesInput.setAttribute('id', 'pages')
 pagesInput.setAttribute('placeholder', 'Number of Pages');
 pagesInput.setAttribute('type', 'number');
+pagesInput.setAttribute('required', '');
 pageDisplay.appendChild(pagesInput);
 
 
@@ -182,12 +185,17 @@ triggerButton.addEventListener('click', ()=> {
 
 
 //Create new book
-submitButton.addEventListener('click', (event)=> {
+submitButton.addEventListener('click', ()=> {
 	let titleEntered = titleInput.value;
 	let authorEntered = authorInput.value;
 	let pagesEntered = pagesInput.value
 	let readStatus = readCheckbox.checked;
-	if (titleEntered && authorEntered && pagesEntered){
+	console.log(titleInput.validity.valueMissing);
+	console.log(authorInput.validity.valueMissing);
+	console.log(pagesInput.validity.valueMissing)
+	if (titleInput.validity.valueMissing || authorInput.validity.valueMissing || pagesInput.validity.valueMissing){
+		readCheckbox.checked = false;
+	} else {
 		let bookCreated = new BookRegistration (titleEntered, authorEntered, pagesEntered, readStatus);
 		addBookToLibrary(bookCreated);
 		checkBookCollection(myBookCollection);
@@ -196,18 +204,18 @@ submitButton.addEventListener('click', (event)=> {
 		pagesInput.value = '';
 		readCheckbox.checked = false;
 		body.removeChild(divDataCollecter);
-	} else {
-		titleInput.value = '';
-		authorInput.value = '';
-		pagesInput.value = '';
-		readCheckbox.checked = false;
-		alert('All the fields should be filled for the book to be registered.');
 	}
-	
 });
 
-//Exit button
+authorInput.addEventListener('input', ()=>{
+	if (authorInput.validity.patternMismatch){
+		authorInput.setCustomValidity('Please, make sure to only use letters and avoid numbers when filling this field.')
+	} else {
+		authorInput.setCustomValidity('');
+	}
+})
 
+//Exit button
 exitButton.addEventListener('click', ()=> {
 	titleInput.value = '';
 	authorInput.value = '';
